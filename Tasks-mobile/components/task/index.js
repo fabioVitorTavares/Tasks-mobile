@@ -9,6 +9,8 @@ export function Task() {
   )
 };
 
+
+
 const styles = StyleSheet.create({
   task: {
     flex: 1,
