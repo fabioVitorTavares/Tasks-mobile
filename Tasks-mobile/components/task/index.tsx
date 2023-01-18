@@ -1,10 +1,26 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
-export function Task() {
+const log = () => {
+  console.log('logou')
+}
+
+const newDate =  () => {
+  return new Date().toLocaleString()
+}
+
+
+
+export function Task(t: string, key: Number) {
   return (
-    <Text style={styles.task}>
-      Tarefa {Math.random()}
+    <Text
+      style={styles.task}      
+    >
+      Tarefa
+      {
+        newDate()}{
+        Math.random() * 10
+      }
     </Text>
   )
 };
