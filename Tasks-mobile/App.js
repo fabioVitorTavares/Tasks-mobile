@@ -16,17 +16,7 @@ export default function App() {
       <Text>Tasks!</Text>
       
       <ScrollView>
-        <Task/>           
-        <Task/>           
-        <Task/>           
-        <Task/>           
-        <Task/>           
-        <Task/>           
-        <Task/>           
-        <Task/>           
-        <Task/>           
-        <Task/>           
-        <Task/>           
+        <Task/>          
       </ScrollView>
     </View>
   );
