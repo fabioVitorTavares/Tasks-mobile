@@ -13,11 +13,18 @@ const functionf = () => {
   Alert.alert("Click to");
 };
 
-export function Task(t: string, key: Number) {
+type TaskProps = {
+  title: string
+}
+
+export function Task( {title}: TaskProps) {
   return (
-    <TouchableOpacity>
-      <Button title="button" onPress={functionf}></Button>
-    </TouchableOpacity>
+    <TouchableOpacity
+      
+      onPress={functionf}
+    >
+    <Text>Press Here</Text>
+  </TouchableOpacity>
   );
 }
 
