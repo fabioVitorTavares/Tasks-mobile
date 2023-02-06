@@ -7,10 +7,9 @@ export function Application() {
 
   return (
     <>
-      <Calendar>
-        
+      <Calendar>        
       </Calendar>  
-      <Task title={'ok'} />
+      <Task title={'kkk'} />
     </>
   )
 }

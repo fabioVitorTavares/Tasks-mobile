@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 const functionf = () => {
-  Alert.alert("Click to");
+  const ok = Alert.alert('ok?')
 };
 
 type TaskProps = {
@@ -23,7 +23,7 @@ export function Task( {title}: TaskProps) {
       style={styles.touch}
       onPress={functionf}
     >
-    <Text>Press Here</Text>
+    <Text>Click</Text>
   </TouchableOpacity>
   );
 }
