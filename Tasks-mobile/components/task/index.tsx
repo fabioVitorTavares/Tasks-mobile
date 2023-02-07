@@ -20,7 +20,7 @@ type TaskProps = {
 export function Task( {title}: TaskProps) {
   return (
     <TouchableOpacity
-      style={styles.touch}
+      
       onPress={functionf}
     >
     <Text>Click</Text>
@@ -28,10 +28,3 @@ export function Task( {title}: TaskProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  touch: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-  },
-});
