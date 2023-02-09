@@ -11,8 +11,7 @@ export function Application() {
 
   return (
     <View style={styles.application}>
-
-      <Calendar/>
+      <Calendar date={date} setDate={setDate} />
     </View>
   );
 }
