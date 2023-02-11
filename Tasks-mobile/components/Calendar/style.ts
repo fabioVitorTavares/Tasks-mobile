@@ -13,5 +13,8 @@ export const styles = StyleSheet.create({
     margin: 2.5,
     textAlign: 'center',
     textAlignVertical: 'center',    
+  },
+  currentDay: {
+    backgroundColor: 'red'
   }
 })

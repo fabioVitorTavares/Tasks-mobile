@@ -21,16 +21,13 @@ function getSubArrayFullDays<Array>(onDate: Date) {
     .map((n, i) => n + i + 1);
 }
 
-
-
-
 export function Calendar({ date, setDate }: CalendarProps) {
   const week: String[] = ["D", "S", "T", "Q", "Q", "S", "S"];
   const [numbers, setNumbers] = useState<number[]>(eptyArray);
 
   useEffect(() => {
     const firstNumber = getPositionFirstDayOfMonth(date);
-    const lastNumber = firstNumber - 1 + getNumberOfDaysInMonth(date);
+    const lastNumber = firstNumber  + getNumberOfDaysInMonth(date);
     const subArray = getSubArrayFullDays(date);
     setNumbers([
       ...numbers.slice(0, firstNumber),
@@ -39,8 +36,12 @@ export function Calendar({ date, setDate }: CalendarProps) {
     ]); 
   }, [date]);
 
-  function f() {
-   
+  function handleClickInDay(numberDay: number) {
+    setDate(new Date(date.getFullYear(), date.getMonth(), numberDay));
+  }
+
+  function currentDay(numberDay: number) {
+    return numberDay === date.getDate()
   }
 
   return (
@@ -49,8 +50,8 @@ export function Calendar({ date, setDate }: CalendarProps) {
         <Text style={styles.cells}>{day}</Text>
       ))}
       {numbers.map((n) => (
-        <TouchableOpacity onPress={() => f()}>
-          <Text style={styles.cells}>{n > 0 ? String(n) : ""}</Text>
+        <TouchableOpacity onPress={() => handleClickInDay(n)}>
+          <Text style={[styles.cells, currentDay(n) ? styles.currentDay : {}]  }>{n > 0 ? String(n) : ""}</Text>
         </TouchableOpacity>
       ))}
     </View>
