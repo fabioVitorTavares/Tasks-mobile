@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
 import {
   Button,
   FlatList,
@@ -8,6 +9,9 @@ import {
   Text,
   View,
 } from "react-native";
+=======
+import { Text, View } from "react-native";
+>>>>>>> d0513173a223fcc6bb7c2827dfbcf716bc9c7814
 import { Calendar } from "../Calendar";
 import { Task } from "../task";
 import { getAllTasks } from "../../Api/api";
@@ -26,6 +30,7 @@ export function Application() {
     loadData();
   }, []);
 
+<<<<<<< HEAD
   function renderTask(task: ListRenderItemInfo<TTask>) {
     return (
       
@@ -46,6 +51,9 @@ export function Application() {
       index
     }
   }
+=======
+
+>>>>>>> d0513173a223fcc6bb7c2827dfbcf716bc9c7814
   return (
     <View style={styles.application}>
       {/* <Calendar date={date} setDate={setDate} /> */}
