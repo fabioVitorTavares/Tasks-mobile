@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-<<<<<<< HEAD
 import {
   Button,
   FlatList,
@@ -9,14 +8,12 @@ import {
   Text,
   View,
 } from "react-native";
-=======
-import { Text, View } from "react-native";
->>>>>>> d0513173a223fcc6bb7c2827dfbcf716bc9c7814
 import { Calendar } from "../Calendar";
 import { Task } from "../task";
 import { getAllTasks } from "../../Api/api";
-import { styles } from "./style";
+import { S } from "./style";
 import { TTask } from "../Types";
+import { Login } from "../../Pages/Login/login";
 
 export function Application() {
   const [tasks, setTasks] = useState<TTask[]>([]);
@@ -26,11 +23,10 @@ export function Application() {
     setTasks(response.data);
   }
 
-  useEffect(() => {
-    loadData();
-  }, []);
+  // useEffect(() => {
+  //   loadData();
+  // }, []);
 
-<<<<<<< HEAD
   function renderTask(task: ListRenderItemInfo<TTask>) {
     return (
       
@@ -51,11 +47,9 @@ export function Application() {
       index
     }
   }
-=======
 
->>>>>>> d0513173a223fcc6bb7c2827dfbcf716bc9c7814
   return (
-    <View style={styles.application}>
+    <View style={S.application}>
       {/* <Calendar date={date} setDate={setDate} /> */}
 
       {/* <Button
@@ -75,13 +69,16 @@ export function Application() {
         />
       ))} */}
 
-      <FlatList
+      {/* <FlatList
         data={tasks}
         renderItem={(task) => renderTask(task)}
         getItemLayout={getLayoutTask}
         persistentScrollbar={true}
         initialScrollIndex={0}
-      />
+      /> */
+      }
+
+      <Login/>
     </View>
   );
 }
