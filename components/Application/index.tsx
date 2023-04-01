@@ -40,6 +40,8 @@ export function Application() {
     );
   }
 
+  const [date, setDate] = useState<Date>(new Date());
+
   function getLayoutTask(tasks: TTask[], index: number){
     return {
       length: 100,
@@ -50,16 +52,16 @@ export function Application() {
 
   return (
     <View style={S.application}>
-      {/* <Calendar date={date} setDate={setDate} /> */}
+      <Calendar date={date} setDate={setDate} />
 
-      {/* <Button
+       {/* <Button
         onPress={() => console.log(tasks.length)}
         title="Ok"
         color="#564"
         accessibilityLabel="Learn more about this purple button"
-      /> */}
+      /> 
 
-      {/* {tasks.map((task) => (
+       {tasks.map((task) => (
         <Task
           key={task.id}
           description={task.description}
@@ -67,18 +69,18 @@ export function Application() {
           dateCreated={task.dateCreated}
           id={task.id}
         />
-      ))} */}
+      ))} 
 
-      {/* <FlatList
+       <FlatList
         data={tasks}
         renderItem={(task) => renderTask(task)}
         getItemLayout={getLayoutTask}
         persistentScrollbar={true}
         initialScrollIndex={0}
-      /> */
-      }
+      />  */}
+      
 
-      <Login/>
+      {/* <Login/> */}
     </View>
   );
 }
