@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { S } from "./style";
 import { View, TextInput, Text, Button, Pressable } from "react-native";
-import { useLogin } from "../../Hoks/useLogin";
+import { useLogin } from "../../Hooks/useLogin";
 
 export function Login() {
   const { user, isAuthenticated, signin, signout } = useLogin();
