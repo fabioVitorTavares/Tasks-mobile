@@ -52,7 +52,8 @@ export function Application() {
 
   return (
     <View style={S.application}>
-      <Calendar date={date} setDate={setDate} />
+      {/* <Calendar date={date} setDate={setDate} /> */}
+
 
        {/* <Button
         onPress={() => console.log(tasks.length)}
@@ -80,7 +81,7 @@ export function Application() {
       />  */}
       
 
-      {/* <Login/> */}
+      <Login/>
     </View>
   );
 }
