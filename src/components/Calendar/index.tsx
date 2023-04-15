@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Pressable } from "react-native";
 import { week, moths } from "../../Constants";
 import { CalendarProps } from "../Types";
 import { s } from "./style";
-import { AntDesign as Icon} from "react-native-vector-icons";
+import { AntDesign as Icon } from "react-native-vector-icons";
 
 function getNumberOfDaysInMonth<Number>(onDate: Date) {
   return new Date(onDate.getFullYear(), onDate.getMonth() + 1, 0).getDate();
@@ -45,12 +45,12 @@ export function Calendar({ date, setDate }: CalendarProps) {
     return numberDay === date.getDate();
   }
 
-  function nextMonth(){
+  function nextMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() + 1, 1));
-  };
-  function previousMonth(){
+  }
+  function previousMonth() {
     setDate(new Date(date.getFullYear(), date.getMonth() - 1, 1));
-  };
+  }
 
   return (
     <View style={s.calendar}>
@@ -59,8 +59,7 @@ export function Calendar({ date, setDate }: CalendarProps) {
           <Icon name="doubleleft" style={s.icon} />
         </TouchableOpacity>
         <Text style={s.labelMonth}>{moths[date.getMonth()]}</Text>
-        <TouchableOpacity
-        onPress={() => nextMonth()}>
+        <TouchableOpacity onPress={() => nextMonth()}>
           <Icon name="doubleright" style={s.icon} />
         </TouchableOpacity>
       </View>

@@ -1,4 +1,4 @@
-import { Application } from './components/Application';
+import { Application } from './src/components/Application';
 
 export default function App() {
 

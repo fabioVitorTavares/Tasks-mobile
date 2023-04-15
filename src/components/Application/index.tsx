@@ -10,11 +10,10 @@ import {
 } from "react-native";
 import { Calendar } from "../Calendar";
 import { Task } from "../task";
-import { getAllTasks } from "../../Api/api";
+import { getAllTasks } from "../../../Api/api";
 import { S } from "./style";
 import { TTask } from "../Types";
-import { Login } from "../../Pages/Login/login";
-
+import { Login } from "../../Screens/Login/login";
 export function Application() {
   const [tasks, setTasks] = useState<TTask[]>([]);
 
@@ -29,7 +28,6 @@ export function Application() {
 
   function renderTask(task: ListRenderItemInfo<TTask>) {
     return (
-      
       <Task
         key={task.item.id}
         description={task.item.description}
@@ -42,20 +40,19 @@ export function Application() {
 
   const [date, setDate] = useState<Date>(new Date());
 
-  function getLayoutTask(tasks: TTask[], index: number){
+  function getLayoutTask(tasks: TTask[], index: number) {
     return {
       length: 100,
       offset: 100 * index,
-      index
-    }
+      index,
+    };
   }
 
   return (
     <View style={S.application}>
       {/* <Calendar date={date} setDate={setDate} /> */}
 
-
-       {/* <Button
+      {/* <Button
         onPress={() => console.log(tasks.length)}
         title="Ok"
         color="#564"
@@ -79,9 +76,8 @@ export function Application() {
         persistentScrollbar={true}
         initialScrollIndex={0}
       />  */}
-      
 
-      <Login/>
+      <Login />
     </View>
   );
 }

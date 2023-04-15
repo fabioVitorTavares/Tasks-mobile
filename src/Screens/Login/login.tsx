@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { S } from "./style";
+import { S } from "./loginStyles";
 import { View, TextInput, Text, Button, Pressable } from "react-native";
 import { useLogin } from "../../Hooks/useLogin";
 
@@ -7,6 +7,10 @@ export function Login() {
   const { user, isAuthenticated, signin, signout } = useLogin();
   const [login, setLogin] = useState<string>();
   const [password, setPassword] = useState<string>();
+
+  useEffect(() => {
+    console.log(isAuthenticated, 'authenticated');
+  }, [isAuthenticated]);
 
   console.log(isAuthenticated);
   return (
