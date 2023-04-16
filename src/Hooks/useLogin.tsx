@@ -6,19 +6,19 @@ export function useLogin() {
   const isAuthenticated = !!user;
 
   function signin(login: string, password: string) {
-    if (login === "fabio" && password === "123") {
+    if (login === "1" && password === "1") {
       setUser({
         id: "12AR4E",
         name: "fabio",
         permissions: ["admin", "user"],
         token: "hjhf9853535jk24924942",
       });
+    } else {
+      setUser(null);
     }
   }
 
-  function signout() {
-    setUser(null);
-  }
+  function signout() {}
 
   return {
     user,

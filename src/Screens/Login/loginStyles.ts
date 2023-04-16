@@ -1,7 +1,13 @@
 import { StyleSheet } from "react-native";
 
-export const S = StyleSheet.create({
-  TextInput: {
+export const {stylesLogin, stylesTextButtonLogin, stylesTextInput, stylesButtonLogin} = StyleSheet.create({
+  stylesLogin: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+  },
+  stylesTextInput: {
     width: 250,
     height: 50,
     borderWidth: 1,    
@@ -9,7 +15,7 @@ export const S = StyleSheet.create({
     paddingLeft: 10,
     marginTop: 10
   },
-  ButtonLogin: {
+  stylesButtonLogin: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -19,9 +25,10 @@ export const S = StyleSheet.create({
     borderRadius: 5,
     marginTop: 50
   },
-  TextButtonLogin: {
+  stylesTextButtonLogin: {
     color: 'white',
     fontSize: 20,
   }
+
 
 });
