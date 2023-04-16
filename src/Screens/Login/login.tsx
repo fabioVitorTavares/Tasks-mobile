@@ -17,16 +17,18 @@ export function Login() {
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  useEffect(() => {}, [isAuthenticated]);
 
-  function handleLoginClick() {
-    signin(login, password);
-    console.log(isAuthenticated, "authenticated");
-
-    if (isAuthenticated) navigation.navigate("Home",{user: {id: user.id, name: user.name}});
+  async function handleLoginClick() {
+    const user = await signin(login, password);
+    
+    if (!!user) navigation.navigate("Home",{user: {id: user.id, name: user.name}});
+    console.log(user, isAuthenticated);
+    setTimeout(() => {
+      
+      console.log(user, isAuthenticated);
+    }, 1000);
   }
 
-  console.log(isAuthenticated);
   return (
     <View style={stylesLogin}>
       <View>

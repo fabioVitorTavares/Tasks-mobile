@@ -9,7 +9,7 @@ export type UserProps = {
 export type AppContextProps = {
   name: string,
   user: UserProps,
-  isAuthenticated: boolean,
+  isAuthenticated: Function,
   signin: Function,
   signout: Function,
 }
