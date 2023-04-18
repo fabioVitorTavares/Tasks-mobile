@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const {stylesLogin, stylesTextButtonLogin, stylesTextInput, stylesButtonLogin} = StyleSheet.create({
+export const {stylesLoadin, stylesLogin, stylesTextButtonLogin, stylesTextInput, stylesButtonLogin} = StyleSheet.create({
   stylesLogin: {
     display: "flex",
     justifyContent: "center",
@@ -28,6 +28,16 @@ export const {stylesLogin, stylesTextButtonLogin, stylesTextInput, stylesButtonL
   stylesTextButtonLogin: {
     color: 'white',
     fontSize: 20,
+  },
+  stylesLoadin: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#0009',
+    zIndex: 2,
   }
 
 

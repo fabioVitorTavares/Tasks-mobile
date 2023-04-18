@@ -1,5 +1,11 @@
 import React, { useEffect, useState, useContext, ProviderProps } from "react";
-import { View, TextInput, Text, Pressable } from "react-native";
+import {
+  ActivityIndicator,
+  View,
+  TextInput,
+  Text,
+  Pressable,
+} from "react-native";
 import { useLogin } from "../../Hooks/useLogin";
 import { useNavigation } from "@react-navigation/native";
 import { AppContext } from "../../Context/appContext";
@@ -8,32 +14,55 @@ import {
   stylesButtonLogin,
   stylesTextInput,
   stylesTextButtonLogin,
+  stylesLoadin,
 } from "./loginStyles";
 
 export function Login() {
-  const {name, user, isAuthenticated, signin} = useContext(AppContext);
+  const { name, user, is, signin } = useContext(AppContext);
   const navigation = useNavigation();
-  
-  const [login, setLogin] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
 
+  const [login, setLogin] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const [load, setLoad] = useState(false);
 
   async function handleLoginClick() {
-    const user = await signin(login, password);
-    
-    if (!!user) navigation.navigate("Home",{user: {id: user.id, name: user.name}});
-    console.log(user, isAuthenticated);
+    console.log("Log line 31: ", is);
+    setLoad(true);
+    const a = signin(login, password);
+    console.log("Log line 33: ", a);
     setTimeout(() => {
-      
-      console.log(user, isAuthenticated);
-    }, 1000);
+      setLoad(false);
+      if (is.Authenticated) {
+        setLogin("");
+        setPassword("");
+        navigation.navigate("Home", { user: { id: user.id, name: user.name } });
+      }
+    }, 2000);
   }
+
+  type LoadingProps = {
+    isLoading: boolean;
+  };
+
+  const Loading = ({ isLoading }: LoadingProps) => {
+    return isLoading ? (
+      <View style={stylesLoadin}>
+        <ActivityIndicator size="large" />
+      </View>
+    ) : null;
+  };
 
   return (
     <View style={stylesLogin}>
+      <Loading isLoading={load} />
       <View>
         <Text>Login</Text>
-        <TextInput style={stylesTextInput} onChangeText={setLogin}></TextInput>
+        <TextInput
+          style={stylesTextInput}
+          onChangeText={setLogin}
+          value={login}
+        ></TextInput>
       </View>
       <View>
         <Text>Senha</Text>
@@ -41,13 +70,13 @@ export function Login() {
           style={stylesTextInput}
           secureTextEntry={true}
           onChangeText={setPassword}
+          value={password}
         ></TextInput>
       </View>
       <Pressable style={stylesButtonLogin} onPress={handleLoginClick}>
         <Text style={stylesTextButtonLogin}>Login</Text>
       </Pressable>
 
-      <Text>{ name}</Text>
     </View>
   );
 }

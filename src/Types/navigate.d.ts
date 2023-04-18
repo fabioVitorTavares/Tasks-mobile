@@ -9,6 +9,7 @@ export declare global {
         }
       };
       Tasks: undefined;
+      AuthenticatedRoute: undefined;
     }
   }
 }

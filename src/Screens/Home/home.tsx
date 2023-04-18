@@ -1,38 +1,52 @@
-import { View, Text, Pressable } from "react-native";
-import { stylesHome } from './homeStyles'
+import { ActivityIndicator, View, Text, Pressable } from "react-native";
+import { stylesHome } from "./homeStyles";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useContext } from "react";
 import { AppContext } from "../../Context/appContext";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 type ScreenHomeParams = {
   user: {
-    id: string,
-    name: string,
-  }
-}
+    id: string;
+    name: string;
+  };
+};
 
 export function Home() {
-  const { name } = useContext(AppContext);
+  const { name, signout, user } = useContext(AppContext);
   const navigation = useNavigation();
   const { params } = useRoute();
-  const {user } = params as ScreenHomeParams;
-  
-  function handleVoltarClick(){
+  const param = params as ScreenHomeParams;
+
+  console.log("Log line 20: ", user);
+
+  function handleClickVoltar() {
     navigation.goBack();
-  };
-  
+  }
+
+  function handleClickSair() {
+    signout();
+  }
+
   return (
     <View style={stylesHome}>
       <Text>Home</Text>
-      <Text>{user.id }</Text>
-      <Text>{user.name}</Text>
-      <Pressable onPress={handleVoltarClick}>
-        <Text>
-          Voltar
-        </Text>
+      <Text>{param.user.id}</Text>
+      <Text>{param.user.name}</Text>
+      <Pressable onPress={handleClickVoltar}>
+        <Text>Voltar</Text>
       </Pressable>
-
-      <Text>{name}</Text>
+      <Pressable onPress={handleClickSair}>
+        <Text>Sair</Text>
+      </Pressable>
+      <Pressable
+        style={{ borderWidth: 1, backgroundColor: "#0009" }}
+        onPress={() => {
+          console.log("Log line 43: ", user);
+        }}
+      >
+        <Text>log</Text>
+      </Pressable>
     </View>
   );
 }

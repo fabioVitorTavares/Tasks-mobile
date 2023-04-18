@@ -6,10 +6,14 @@ export type UserProps = {
   token: string;
 }
 
+type IsProps = {
+  Authenticated: boolean;
+}
+
 export type AppContextProps = {
   name: string,
   user: UserProps,
-  isAuthenticated: Function,
+  is: IsProps,
   signin: Function,
   signout: Function,
 }

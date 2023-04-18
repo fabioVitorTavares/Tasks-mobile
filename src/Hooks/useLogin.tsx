@@ -2,33 +2,37 @@ import { useEffect, useState } from "react";
 import { UserProps } from "../Types/types";
 
 export function useLogin() {
-  const [user, setUser] = useState<UserProps | null>(null);
-  useEffect(() => {
-    console.log('Log line 7: ','render', user, isAuthenticated)
-  },[user]);
+  const user: UserProps = {
+    id: '',
+    name: '',
+    permissions: [],
+    token: '',
+  };
   
-  const isAuthenticated = !!user;
+  const is = {
+    Authenticated: false,
+  };
 
-  async function signin(login: string, password: string) {
+  function signin(login: string, password: string) {
+    console.log("Log line 11: ", login, password);
     if (login === "1" && password === "1") {
-      setUser({
-        id: "12AR4E",
-        name: "fabio",
-        permissions: ["admin", "user"],
-        token: "hjhf9853535jk24924942",
-      });
-      return user;
-    } else {
-      setUser(null);
+      is.Authenticated = true;
+      user.id = "12AR4E";
+      user.name = "fabio";
+      user.permissions = ["admin", "user"];
+      user.token = "hjhf9853535jk24924942";
     }
-    return null;
+    return user;
   }
 
-  function signout() {}
+  function signout() {
+    user.token = '';
+    is.Authenticated = false;
+  }
 
   return {
     user,
-    isAuthenticated,
+    is,
     signin,
     signout,
   };
