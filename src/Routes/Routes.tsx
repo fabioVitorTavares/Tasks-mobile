@@ -14,7 +14,7 @@ export function Routes() {
       <NavigationContainer>
         <Navigator>
           <Screen
-            options={{ title: "Home", headerTitleAlign: "center" }}
+            options={{ headerShown: false}}
             name="Home"
             component={Home}
           />

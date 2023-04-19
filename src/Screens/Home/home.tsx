@@ -5,6 +5,7 @@ import {
   Pressable,
   FlatList,
   SafeAreaView,
+  TouchableOpacity
 } from "react-native";
 import {
   stylesHome,
@@ -12,8 +13,9 @@ import {
   stylesSafeAreaView,
 } from "./homeStyles";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../../Context/appContext";
+import ModalTask from "../../components/ModalTask/ModalTask";
 
 type ScreenHomeParams = {
   user: {
@@ -27,6 +29,13 @@ export function Home() {
   const navigation = useNavigation();
   const { params } = useRoute();
   const param = params as ScreenHomeParams;
+  const [modalTaskVisible, setModalTaskVisible] = useState(false);
+  const [taskSelected, setTaskSelected] = useState<TodayTasksProps>({
+    title: '',
+    id: 0
+  });
+  
+  
 
   function handleClickVoltar() {
     navigation.goBack();
@@ -36,8 +45,9 @@ export function Home() {
     signout();
   }
 
-  function handleClickTodaysTasks() {
-    console.log("Log line 31: ", "clickk");
+  function handleClickTodaysTasks({ title, id }: TodayTasksProps) {
+    setTaskSelected({ title, id });
+    setModalTaskVisible(true);
   }
 
   type TodayTasksProps = {
@@ -47,22 +57,26 @@ export function Home() {
 
   function TodaysTasks({ title }: TodayTasksProps) {
     return (
-      <Pressable style={stylesTodaysTasks} onPress={handleClickTodaysTasks}>
-        <Text>Tarefas de {title}</Text>
-      </Pressable>
+      <View style={stylesTodaysTasks}>
+        <Text>{title}</Text>
+      </View>
     );
   }
 
   const data = [
-    { title: 1, id: 11 },
-    { title: 2, id: 12 },
-    { title: "Hoje", id: 13 },
-    { title: 3, id: 14 },
-    { title: 4, id: 15 },
+    { title: "Tarefas de segunda", id: 11 },
+    { title: "Tarefas de terça", id: 12 },
+    { title: "Tarefas de Hoje", id: 13 },
+    { title: "Tarefas de quinta", id: 14 },
+    { title: "Tarefas de sexta", id: 15 },
   ];
 
   function renderItem({ item }) {
-    return <TodaysTasks title={item.title} />;
+    return (
+      <TouchableOpacity onPress={() => handleClickTodaysTasks(item)}>
+        <TodaysTasks title={item.title} />
+      </TouchableOpacity>
+    )
   }
 
   function Gap() {
@@ -75,6 +89,10 @@ export function Home() {
       offset: 250 * index - 25,
       index,
     };
+  }
+
+  function closeModalTask() {
+    setModalTaskVisible(false);
   }
 
   return (
@@ -93,6 +111,7 @@ export function Home() {
           ListFooterComponent={Gap}
         />
       </SafeAreaView>
+      {modalTaskVisible && <ModalTask props={{title: taskSelected.title, id: taskSelected.id}} onClose={closeModalTask} />}
       <View style={{ width: "100%", height: "50%" }} />
     </View>
   );
