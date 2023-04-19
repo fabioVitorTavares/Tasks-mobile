@@ -27,18 +27,14 @@ export function Login() {
   const [load, setLoad] = useState(false);
 
   async function handleLoginClick() {
-    console.log("Log line 31: ", is);
     setLoad(true);
-    const a = signin(login, password);
-    console.log("Log line 33: ", a);
-    setTimeout(() => {
-      setLoad(false);
-      if (is.Authenticated) {
-        setLogin("");
-        setPassword("");
-        navigation.navigate("Home", { user: { id: user.id, name: user.name } });
-      }
-    }, 2000);
+    await signin(login, password);
+    setLoad(false);
+    if (is.Authenticated) {
+      setLogin("");
+      setPassword("");
+      navigation.navigate("Home", { user: { id: user.id, name: user.name } });
+    }
   }
 
   type LoadingProps = {
@@ -76,7 +72,6 @@ export function Login() {
       <Pressable style={stylesButtonLogin} onPress={handleLoginClick}>
         <Text style={stylesTextButtonLogin}>Login</Text>
       </Pressable>
-
     </View>
   );
 }

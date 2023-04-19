@@ -18,7 +18,6 @@ export function Home() {
   const { params } = useRoute();
   const param = params as ScreenHomeParams;
 
-  console.log("Log line 20: ", user);
 
   function handleClickVoltar() {
     navigation.goBack();
