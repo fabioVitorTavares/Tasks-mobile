@@ -17,3 +17,7 @@ export type AppContextProps = {
   signin: Function,
   signout: Function,
 }
+
+export type LoadingProps = {
+  isLoading: boolean;
+};

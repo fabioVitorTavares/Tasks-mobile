@@ -14,14 +14,14 @@ export function Routes() {
       <NavigationContainer>
         <Navigator>
           <Screen
-            options={{ headerShown: false }}
-            name="Login"
-            component={Login}
-          />
-          <Screen
             options={{ title: "Home", headerTitleAlign: "center" }}
             name="Home"
             component={Home}
+          />
+          <Screen
+            options={{ headerShown: false }}
+            name="Login"
+            component={Login}
           />
         </Navigator>
       </NavigationContainer>

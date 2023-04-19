@@ -16,15 +16,14 @@ import {
   stylesTextButtonLogin,
   stylesLoadin,
 } from "./loginStyles";
+import { LoadingProps } from "../../Types/types";
 
 export function Login() {
   const { name, user, is, signin } = useContext(AppContext);
-  const navigation = useNavigation();
-
-  const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
+  const [login, setLogin] = useState<string>("");
   const [load, setLoad] = useState(false);
+  const navigation = useNavigation();
 
   async function handleLoginClick() {
     setLoad(true);
@@ -37,14 +36,10 @@ export function Login() {
     }
   }
 
-  type LoadingProps = {
-    isLoading: boolean;
-  };
-
   const Loading = ({ isLoading }: LoadingProps) => {
     return isLoading ? (
       <View style={stylesLoadin}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color={"#00BFFF"} />
       </View>
     ) : null;
   };
@@ -55,6 +50,7 @@ export function Login() {
       <View>
         <Text>Login</Text>
         <TextInput
+          selectionColor={"#0005"}
           style={stylesTextInput}
           onChangeText={setLogin}
           value={login}
@@ -67,6 +63,7 @@ export function Login() {
           secureTextEntry={true}
           onChangeText={setPassword}
           value={password}
+          selectionColor={"#0005"}
         ></TextInput>
       </View>
       <Pressable style={stylesButtonLogin} onPress={handleLoginClick}>

@@ -10,24 +10,28 @@ export const {stylesLoadin, stylesLogin, stylesTextButtonLogin, stylesTextInput,
   stylesTextInput: {
     width: 250,
     height: 50,
-    borderWidth: 1,    
+    borderWidth: 1,
+    borderColor: '#0005',
     borderRadius: 5,
     paddingLeft: 10,
-    marginTop: 10
+    marginTop: 5,
+    marginBottom: 20
   },
   stylesButtonLogin: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
-    color: 'white',
+    color: 'red',
     backgroundColor: '#00BFFF' ,
     borderRadius: 5,
-    marginTop: 50
+    marginTop: 50,
+    width: 250
   },
   stylesTextButtonLogin: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 24,
+    fontWeight: "bold"
   },
   stylesLoadin: {
     position: 'absolute',
