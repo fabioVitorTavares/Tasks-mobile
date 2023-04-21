@@ -5,7 +5,7 @@ import {
   Pressable,
   FlatList,
   SafeAreaView,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import {
   stylesHome,
@@ -15,7 +15,7 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../Context/appContext";
-import ModalTask from "../../components/ModalTask/ModalTask";
+import ModalTask from "../../components/ModalTaskOfDay/ModalTaskOfDay";
 
 type ScreenHomeParams = {
   user: {
@@ -31,11 +31,9 @@ export function Home() {
   const param = params as ScreenHomeParams;
   const [modalTaskVisible, setModalTaskVisible] = useState(false);
   const [taskSelected, setTaskSelected] = useState<TodayTasksProps>({
-    title: '',
-    id: 0
+    title: "",
+    id: 0,
   });
-  
-  
 
   function handleClickVoltar() {
     navigation.goBack();
@@ -76,7 +74,7 @@ export function Home() {
       <TouchableOpacity onPress={() => handleClickTodaysTasks(item)}>
         <TodaysTasks title={item.title} />
       </TouchableOpacity>
-    )
+    );
   }
 
   function Gap() {
@@ -111,7 +109,12 @@ export function Home() {
           ListFooterComponent={Gap}
         />
       </SafeAreaView>
-      {modalTaskVisible && <ModalTask props={{title: taskSelected.title, id: taskSelected.id}} onClose={closeModalTask} />}
+      {modalTaskVisible && (
+        <ModalTask
+          props={{ title: taskSelected.title, id: taskSelected.id }}
+          onClose={closeModalTask}
+        />
+      )}
       <View style={{ width: "100%", height: "50%" }} />
     </View>
   );
