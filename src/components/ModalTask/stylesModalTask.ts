@@ -8,7 +8,15 @@ const {displayFlexCenter} = StyleSheet.create({
   }
 });
 
-export const {stylesModalTask, stylesIconClose } = StyleSheet.create({
+export const {stylesModalTask, stylesIconClose, stylesBackModalTask } = StyleSheet.create({
+  stylesBackModalTask: {
+    ...displayFlexCenter,
+    backgroundColor: '#0009',
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    zIndex: 2,
+  },
   stylesModalTask: {
     ...displayFlexCenter,
     position: 'absolute',
@@ -17,7 +25,6 @@ export const {stylesModalTask, stylesIconClose } = StyleSheet.create({
     zIndex: 2,
     borderRadius: 15,
     backgroundColor: '#fff',
-    backfaceVisibility: 'visible',
   },
   stylesIconClose: {
     bottom: '45%',
