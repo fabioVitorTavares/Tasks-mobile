@@ -30,5 +30,9 @@ type TodayTasksProps = {
 
 export type ModalTaskProps = {
   props: TodayTasksProps;
-  onClose: ()=> void;
+  onClose: () => void;
+};
+
+export type ModalRegisterOptionsProps = {
+  close: () => void;
 };

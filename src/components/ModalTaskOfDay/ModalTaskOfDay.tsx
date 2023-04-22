@@ -6,7 +6,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import { ModalTaskProps } from "../../Types/types";
-import { AntDesign as Icon } from "react-native-vector-icons";
+import { AntDesign as Icon } from "@expo/vector-icons";
 import {
   stylesModalTask,
   stylesIconClose,
@@ -15,39 +15,51 @@ import {
   stylesListTasks,
   stylesItemList,
 } from "./stylesModalTaskOfDay";
+import { useNavigation } from "@react-navigation/native";
 
 const data = [
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
-  { title: "Task" },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
+  { title: `Task  ${Math.ceil(Math.random() * 999)}` },
 ];
 
 export default function ModalTaskOfDay({ props, onClose }: ModalTaskProps) {
   const { title, id } = props;
+
+  const navigation = useNavigation();
+
   function IconClose() {
     return (
       <TouchableOpacity style={stylesIconClose} onPress={onClose}>
@@ -64,7 +76,9 @@ export default function ModalTaskOfDay({ props, onClose }: ModalTaskProps) {
 
   function renderItem({ item }: renderProps) {
     return (
-      <TouchableOpacity onPress={() => console.log("Log line 67: ")}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("Task", { item: item })}
+      >
         <View style={stylesItemList}>
           <Text style={{ width: 100, textAlign: "center" }}> {item.title}</Text>
         </View>

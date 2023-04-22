@@ -8,7 +8,11 @@ export declare global {
           name: string;
         }
       };
-      Tasks: undefined;
+      Task: {
+        item: {
+          title: string;
+        }
+      };
       AuthenticatedRoute: undefined;
     }
   }
