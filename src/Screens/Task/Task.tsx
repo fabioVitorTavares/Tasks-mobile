@@ -2,7 +2,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Entypo as Icon } from "@expo/vector-icons";
-import ModalRegisterOptions from "../../components/ModalRegisterOptions/ModalRegisterOptions";
 import {
   stylesScreenTask,
   stylesTitleAndDescription,
@@ -18,8 +17,6 @@ type TaskRouteParamsProps = {
 
 export function Task() {
   const navigation = useNavigation();
-  const [modalRegisterOptionVisible, setModalRegisterOptionVisible] =
-    useState(false);
 
   const { params } = useRoute();
   const {
@@ -35,16 +32,11 @@ export function Task() {
   }
 
   function handlePressRegister() {
-    setModalRegisterOptionVisible(true);
+    navigation.navigate("CameraApp", { item: { id: title } });
   }
 
   return (
     <View style={stylesScreenTask}>
-      {modalRegisterOptionVisible && (
-        <ModalRegisterOptions
-          close={() => setModalRegisterOptionVisible(false)}
-        />
-      )}
       <View style={stylesTitleAndDescription}>
         <Text>{title}</Text>
         <Text>Description of task</Text>

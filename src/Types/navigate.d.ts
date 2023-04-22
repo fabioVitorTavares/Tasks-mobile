@@ -13,6 +13,11 @@ export declare global {
           title: string;
         }
       };
+      CameraApp: {
+        item: {
+          id: string;
+        }
+      };
       AuthenticatedRoute: undefined;
     }
   }
