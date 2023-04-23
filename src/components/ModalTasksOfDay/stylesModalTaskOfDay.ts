@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { azul } from "../../Constants/Colors/colors";
 
 const {displayFlexCenter} = StyleSheet.create({
   displayFlexCenter: {
@@ -8,8 +9,8 @@ const {displayFlexCenter} = StyleSheet.create({
   }
 });
 
-export const {stylesItemList, stylesHeaderModal,stylesListTasks, stylesModalTask, stylesIconClose, stylesBackModalTask } = StyleSheet.create({
-  stylesBackModalTask: {
+export const styles = StyleSheet.create({
+  BackModalTask: {
     ...displayFlexCenter,
     backgroundColor: '#0009',
     position: 'absolute',
@@ -17,7 +18,7 @@ export const {stylesItemList, stylesHeaderModal,stylesListTasks, stylesModalTask
     height: '100%',
     zIndex: 2,
   },
-  stylesModalTask: {
+  ModalTask: {
     ...displayFlexCenter,
     position: 'absolute',
     width: '80%',
@@ -27,26 +28,31 @@ export const {stylesItemList, stylesHeaderModal,stylesListTasks, stylesModalTask
     backgroundColor: '#fff',
     paddingVertical: '10%'
   },
-  stylesIconClose: {
+  IconClose: {
     position: 'absolute',
     zIndex: 3,
     top: 10,
     right: 10,
   },
-  stylesHeaderModal: {
+  HeaderModal: {
     ...displayFlexCenter,
-    height: '30%',
+    height: '20%',
     width: '100%'
   },
-  stylesListTasks: {
+  ListTasks: {
     ...displayFlexCenter,
-    height: '70%',
-    width: '100%',
+    height: '80%',
+    width: '90%',
   },
-  stylesItemList: {
+  ItemList: {
     ...displayFlexCenter,
     width: '100%',
     height: 50,
-    backgroundColor: '#985'
+    borderRadius: 10,
+    backgroundColor: azul
+  },
+  FlatList: {
+    width: '100%',
+    height: '100%',
   }
 });

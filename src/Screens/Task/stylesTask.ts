@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { azul } from "../../Constants/Colors/colors";
 
 const { displayFlexCenter, widthHeight100percent } = StyleSheet.create({
   displayFlexCenter: {
@@ -12,28 +13,30 @@ const { displayFlexCenter, widthHeight100percent } = StyleSheet.create({
   }
 }); 
 
-export const {stylesOption, stylesScreenTask, stylesTitleAndDescription, stylesOptions} = StyleSheet.create({
-  stylesScreenTask: {
+export const styles = StyleSheet.create({
+  ScreenTask: {
     ...displayFlexCenter,
     ...widthHeight100percent,
   },
-  stylesTitleAndDescription: {
+  TitleAndDescription: {
     ...displayFlexCenter,
     width: '80%',
-    height: 200,
-    backgroundColor: '#0099ff',
+    height: '75%',
+    backgroundColor: azul,
+    borderRadius: 10
   },
-  stylesOptions: {
+  Options: {
     ...displayFlexCenter,
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '80%',
     height: 100,
   },
-  stylesOption: {
+  Option: {
     ...displayFlexCenter,
     width: 80,
     height: 80,
-    backgroundColor: '#0099ff',
+    backgroundColor: azul,
+    borderRadius: 10
   }
 });

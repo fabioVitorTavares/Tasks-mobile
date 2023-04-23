@@ -28,8 +28,8 @@ type TodayTasksProps = {
   id?: number;
 };
 
-export type ModalTaskProps = {
-  props: TodayTasksProps;
+export type ModalTasksOfDaysProps = {
+  date: String;
   onClose: () => void;
 };
 

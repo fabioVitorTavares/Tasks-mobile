@@ -2,16 +2,15 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Entypo as Icon } from "@expo/vector-icons";
-import {
-  stylesScreenTask,
-  stylesTitleAndDescription,
-  stylesOptions,
-  stylesOption,
-} from "./stylesTask";
+import { styles } from "./stylesTask";
 
 type TaskRouteParamsProps = {
   item: {
+    id: string;
     title: string;
+    createdDate: string;
+    date: string;
+    description: string;
   };
 };
 
@@ -20,7 +19,7 @@ export function Task() {
 
   const { params } = useRoute();
   const {
-    item: { title },
+    item: { id, title, createdDate, date, description },
   } = params as TaskRouteParamsProps;
 
   useEffect(() => {
@@ -36,21 +35,24 @@ export function Task() {
   }
 
   return (
-    <View style={stylesScreenTask}>
-      <View style={stylesTitleAndDescription}>
+    <View style={styles.ScreenTask}>
+      <View style={styles.TitleAndDescription}>
+        <Text>{id}</Text>
         <Text>{title}</Text>
-        <Text>Description of task</Text>
+        <Text>{createdDate}</Text>
+        <Text>{date}</Text>
+        <Text>{description}</Text>
       </View>
-      <View style={stylesOptions}>
-        <TouchableOpacity style={stylesOption} onPress={handlePressReturn}>
+      <View style={styles.Options}>
+        <TouchableOpacity style={styles.Option} onPress={handlePressReturn}>
           <Icon size={36} name="reply" />
           <Text>Return</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={stylesOption} onPress={handlePressRegister}>
+        <TouchableOpacity style={styles.Option} onPress={handlePressRegister}>
           <Icon size={36} name="camera" />
           <Text>Register</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={stylesOption}>
+        <TouchableOpacity style={styles.Option}>
           <Icon size={36} name="check" />
           <Text>Ok</Text>
         </TouchableOpacity>

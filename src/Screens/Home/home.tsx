@@ -1,8 +1,6 @@
 import {
-  ActivityIndicator,
   View,
   Text,
-  Pressable,
   FlatList,
   SafeAreaView,
   TouchableOpacity,
@@ -15,7 +13,7 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../Context/appContext";
-import ModalTask from "../../components/ModalTaskOfDay/ModalTaskOfDay";
+import { ModalTasksOfDay } from "../../components/ModalTasksOfDay/ModalTasksOfDay";
 
 type ScreenHomeParams = {
   user: {
@@ -30,10 +28,7 @@ export function Home() {
   const { params } = useRoute();
   const param = params as ScreenHomeParams;
   const [modalTaskVisible, setModalTaskVisible] = useState(false);
-  const [taskSelected, setTaskSelected] = useState<TodayTasksProps>({
-    title: "",
-    id: 0,
-  });
+  const [dateSelected, setDateSelected] = useState<String>("");
 
   function handleClickVoltar() {
     navigation.goBack();
@@ -43,8 +38,8 @@ export function Home() {
     signout();
   }
 
-  function handleClickTodaysTasks({ title, id }: TodayTasksProps) {
-    setTaskSelected({ title, id });
+  function handleClickTodaysTasks(date: String) {
+    setDateSelected(date);
     setModalTaskVisible(true);
   }
 
@@ -61,18 +56,26 @@ export function Home() {
     );
   }
 
-  const data = [
-    { title: "Tarefas de segunda", id: 11 },
-    { title: "Tarefas de terça", id: 12 },
-    { title: "Tarefas de Hoje", id: 13 },
-    { title: "Tarefas de quinta", id: 14 },
-    { title: "Tarefas de sexta", id: 15 },
+  const dataDates = [
+    "01-01-2023",
+    "02-01-2023",
+    "03-01-2023",
+    "04-01-2023",
+    "05-01-2023",
+    "06-01-2023",
+    "07-01-2023",
   ];
+
+  type dataDatesProps = {
+    item: {
+      date: string;
+    };
+  };
 
   function renderItem({ item }) {
     return (
       <TouchableOpacity onPress={() => handleClickTodaysTasks(item)}>
-        <TodaysTasks title={item.title} />
+        <TodaysTasks title={item} />
       </TouchableOpacity>
     );
   }
@@ -97,9 +100,9 @@ export function Home() {
     <View style={stylesHome}>
       <SafeAreaView style={stylesSafeAreaView}>
         <FlatList
-          data={data}
+          data={dataDates}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item, index) => `${index}`}
           horizontal={true}
           ItemSeparatorComponent={Gap}
           getItemLayout={getLayout}
@@ -110,10 +113,7 @@ export function Home() {
         />
       </SafeAreaView>
       {modalTaskVisible && (
-        <ModalTask
-          props={{ title: taskSelected.title, id: taskSelected.id }}
-          onClose={closeModalTask}
-        />
+        <ModalTasksOfDay date={dateSelected} onClose={closeModalTask} />
       )}
       <View style={{ width: "100%", height: "50%" }} />
     </View>
