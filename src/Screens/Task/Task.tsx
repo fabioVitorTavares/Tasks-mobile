@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { useContext, useEffect, useRef, useState } from "react";
+import { View, Text, TouchableOpacity, Button } from "react-native";
 import { Entypo as Icon } from "@expo/vector-icons";
 import { styles } from "./stylesTask";
 
@@ -37,11 +37,11 @@ export function Task() {
   return (
     <View style={styles.ScreenTask}>
       <View style={styles.TitleAndDescription}>
-        <Text>{id}</Text>
+        {/* <Text>{id}</Text>
         <Text>{title}</Text>
         <Text>{createdDate}</Text>
         <Text>{date}</Text>
-        <Text>{description}</Text>
+        <Text>{description}</Text> */}
       </View>
       <View style={styles.Options}>
         <TouchableOpacity style={styles.Option} onPress={handlePressReturn}>

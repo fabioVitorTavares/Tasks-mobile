@@ -17,6 +17,8 @@ export type AppContextProps = {
   is: IsProps;
   signin: Function;
   signout: Function;
+  videoGravado: { uri: string};
+  setVideoGravado: Function;
 };
 
 export type LoadingProps = {
