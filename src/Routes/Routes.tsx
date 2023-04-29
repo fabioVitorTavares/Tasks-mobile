@@ -7,6 +7,7 @@ import { Task } from "../Screens/Task/Task";
 import { AppContext, AppContextProvider } from "../Context/appContext";
 import { ElementType, ReactElement, useContext, useEffect } from "react";
 import { CameraApp } from "../Screens/Camera/CameraApp";
+import Register from "../Screens/Register/Register";
 
 const { Screen, Navigator } = createNativeStackNavigator();
 
@@ -15,6 +16,11 @@ export function Routes() {
     <AppContextProvider>
       <NavigationContainer>
         <Navigator>
+          <Screen
+            options={{ headerShown: false }}
+            name="Register"
+            component={Register}
+          />
           <Screen
             options={{ headerShown: false }}
             name="Home"
