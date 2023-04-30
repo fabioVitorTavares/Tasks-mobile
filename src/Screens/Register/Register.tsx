@@ -1,25 +1,31 @@
-import styled from "styled-components";
-import { Text, TextInput, useWindowDimensions } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-
+import { Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  RegisterBackground,
+  RegisterContainer,
+  ButtonCadastrar,
+  TextCadastrar,
+  TextImputCadastrar,
+} from "./styles";
+import { useState } from "react";
 export default function Register() {
-  const RegisterBackground = styled.View`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  `;
+  const [theme, setTheme] = useState("light");
+
+  function handlePressCadastrar() {
+    setTheme((prevThem) => (prevThem === "dark" ? "light" : "dark"));
+    console.log(theme);
+  }
 
   return (
-    <RegisterBackground>
-      <Text>OK</Text>
-      <TextInput onChangeText={() => console.log("Log line 17:")}></TextInput>
-      <TextInput></TextInput>
-      <TextInput></TextInput>
-      <TouchableOpacity>
-        <Text>Cadastrar</Text>
-      </TouchableOpacity>
+    <RegisterBackground theme={theme}>
+      <RegisterContainer>
+        <TextImputCadastrar />
+        <TextImputCadastrar />
+        <TextImputCadastrar />
+        <TextImputCadastrar />
+        <ButtonCadastrar onPress={handlePressCadastrar}>
+          <TextCadastrar theme={theme}>Cadastrar</TextCadastrar>
+        </ButtonCadastrar>
+      </RegisterContainer>
     </RegisterBackground>
   );
 }
