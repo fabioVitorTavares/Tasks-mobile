@@ -6,6 +6,7 @@ import { ModalTasksOfDay } from "../../components/ModalTasksOfDay/ModalTasksOfDa
 import styled from "styled-components";
 import { azul } from "../../Constants/Colors/colors";
 import CardTask from "../../components/CardTask/CardTask";
+import { displayFlexCenter } from "../../Styles/DefaultStyles";
 
 type ScreenHomeParams = {
   user: {

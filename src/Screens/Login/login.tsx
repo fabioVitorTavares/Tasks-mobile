@@ -6,7 +6,6 @@ import {
   Text,
   Pressable,
 } from "react-native";
-import { useLogin } from "../../Hooks/useLogin";
 import { useNavigation } from "@react-navigation/native";
 import { AppContext } from "../../Context/appContext";
 import {
@@ -44,6 +43,10 @@ export function Login() {
     ) : null;
   };
 
+  function handlePressCadastrese() {
+    navigation.navigate("Register");
+  }
+
   return (
     <View style={stylesLogin}>
       <Loading isLoading={load} />
@@ -68,6 +71,9 @@ export function Login() {
       </View>
       <Pressable style={stylesButtonLogin} onPress={handleLoginClick}>
         <Text style={stylesTextButtonLogin}>Login</Text>
+      </Pressable>
+      <Pressable style={stylesButtonLogin} onPress={handlePressCadastrese}>
+        <Text style={stylesTextButtonLogin}>Cadastre-se</Text>
       </Pressable>
     </View>
   );

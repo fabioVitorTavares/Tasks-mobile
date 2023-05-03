@@ -1,6 +1,10 @@
-const black = '#000';
-const white = '#fff';
-export const darkBackground = black;
-export const lightBackground = white;
-export const darkFontColor = white;
-export const ligthfontColor = black;
+export const colors = {
+  black: '#000',
+  white: '#fff',
+  blue: '#2596be',
+  red: '#200',
+};
+export const darkBackground = colors.black;
+export const lightBackground = colors.white;
+export const darkFontColor = colors.white;
+export const ligthfontColor = colors.black;

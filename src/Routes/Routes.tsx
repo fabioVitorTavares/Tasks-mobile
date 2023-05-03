@@ -17,8 +17,8 @@ export function Routes() {
         <Navigator>
           <Screen
             options={{ headerShown: false }}
-            name="Register"
-            component={Register}
+            name="Login"
+            component={Login}
           />
           <Screen
             options={{ headerShown: false }}
@@ -27,8 +27,8 @@ export function Routes() {
           />
           <Screen
             options={{ headerShown: false }}
-            name="Login"
-            component={Login}
+            name="Register"
+            component={Register}
           />
           <Screen
             options={{ headerShown: false }}
