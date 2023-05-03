@@ -6,7 +6,6 @@ import { Home } from "../Screens/Home/home";
 import { Task } from "../Screens/Task/Task";
 import { AppContext, AppContextProvider } from "../Context/appContext";
 import { ElementType, ReactElement, useContext, useEffect } from "react";
-import { CameraApp } from "../Screens/Camera/CameraApp";
 import Register from "../Screens/Register/Register";
 
 const { Screen, Navigator } = createNativeStackNavigator();
@@ -35,11 +34,6 @@ export function Routes() {
             options={{ headerShown: false }}
             name="Task"
             component={Task}
-          />
-          <Screen
-            options={{ headerShown: false }}
-            name="CameraApp"
-            component={CameraApp}
           />
         </Navigator>
       </NavigationContainer>

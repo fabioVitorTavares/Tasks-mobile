@@ -3,7 +3,6 @@ import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { AppContext } from "../../Context/appContext";
 import { ModalTasksOfDay } from "../../components/ModalTasksOfDay/ModalTasksOfDay";
-import { displayFlexCenter } from "../../StyledComponents/StyledComponents";
 import styled from "styled-components";
 import { azul } from "../../Constants/Colors/colors";
 import CardTask from "../../components/CardTask/CardTask";

@@ -1,4 +1,4 @@
-import { displayFlexCenter } from "../../StyledComponents/StyledComponents";
+import { displayFlexCenter } from "../../Styles/DefaultStyles";
 import styled from "styled-components";
 import { Text } from "react-native";
 
