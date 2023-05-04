@@ -12,15 +12,14 @@ type IsProps = {
 };
 
 export type AppContextProps = {
-  name: string;
-  user: UserProps;
-  is: IsProps;
-  signin: Function;
-  signout: Function;
-  videoGravado: { uri: string };
-  setVideoGravado: Function;
-  backgroundColor: string;
-  alterTheme: () => void;
+  user?: UserProps;
+  is?: IsProps;
+  signin?: Function;
+  signout?: Function;
+  videoGravado?: { uri?: string };
+  setVideoGravado?: Function;
+  backgroundColor?: string;
+  alterTheme?: () => void;
 };
 
 export type LoadingProps = {

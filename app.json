@@ -9,13 +9,6 @@
         "projectId": "953a9aa2-3a27-4eb4-b259-c47fd0c07b54"
       }
     },
-    "plugins": [
-      [
-        "expo-camera",
-        {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera."
-        }
-      ]
-    ]
+    "assets": ["./assets/fonts/"]
   }
 }

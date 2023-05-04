@@ -1,12 +1,26 @@
 import React, { useContext, useState } from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  TouchableOpacity,
+  RefreshControl,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { AppContext } from "../../Context/appContext";
 import { ModalTasksOfDay } from "../../components/ModalTasksOfDay/ModalTasksOfDay";
-import styled from "styled-components";
-import { azul } from "../../Constants/Colors/colors";
 import CardTask from "../../components/CardTask/CardTask";
-import { displayFlexCenter } from "../../Styles/DefaultStyles";
+import {
+  BackgroundApp,
+  CardCalendar,
+  CardMenu,
+  ContainerCardsMenu,
+  ContainerHomeInf,
+  ContainerHomeSup,
+  Gap,
+  MenuHome,
+  SafeAreaViewApp,
+} from "./styles";
 
 type ScreenHomeParams = {
   user: {
@@ -16,8 +30,7 @@ type ScreenHomeParams = {
 };
 
 export function Home() {
-  const { name, signout, user, backgroundColor, alterTheme } =
-    useContext(AppContext);
+  const { name, signout, user, alterTheme } = useContext(AppContext);
   const navigation = useNavigation();
   const { params } = useRoute();
   const param = params as ScreenHomeParams;
@@ -78,70 +91,8 @@ export function Home() {
     setModalTaskVisible(false);
   }
 
-  const BackgroundApp = styled.View`
-    width: 100%;
-    height: 100%;
-    background-color: ${backgroundColor};
-    padding-vertical: 20px;
-  `;
-
-  const ContainerHomeSup = styled.View`
-    ${displayFlexCenter}
-    width: 100%;
-    height: 40%;
-  `;
-
-  const ContainerHomeInf = styled.View`
-    ${displayFlexCenter}
-    width: 100%;
-    height: 60%;
-    padding: 20px;
-  `;
-
-  const SafeAreaViewApp = styled.SafeAreaView`
-    ${displayFlexCenter}
-    width: 100%;
-    height: 200px;
-  `;
-
-  const MenuHome = styled.View`
-    ${displayFlexCenter}
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    background-color: #0004;
-    padding: 20px;
-  `;
-
-  const Gap = styled.View`
-    width: 15px;
-  `;
-
-  const CardCalendar = styled.View`
-    ${displayFlexCenter}
-    width: 100%;
-    height: 45%;
-    border-radius: 15px;
-    background-color: #fff;
-  `;
-
-  const CardMenu = styled.View`
-    ${displayFlexCenter}
-    width: 45%;
-    height: 100%;
-    border-radius: 15px;
-    background-color: #fff;
-  `;
-
-  const ContainerCardsMenu = styled.View`
-    ${displayFlexCenter}
-    justify-content: space-between;
-    flex-direction: row;
-    width: 100%;
-    height: 45%;
-  `;
-
   return (
+    // <RefreshControl>
     <BackgroundApp>
       <ContainerHomeSup>
         <SafeAreaViewApp>
@@ -174,4 +125,7 @@ export function Home() {
       )}
     </BackgroundApp>
   );
+  {
+    /* </RefreshControl> */
+  }
 }

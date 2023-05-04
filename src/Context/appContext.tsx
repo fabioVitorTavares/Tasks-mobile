@@ -1,5 +1,4 @@
-import { Children, ReactNode, createContext, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { createContext, useState } from "react";
 import { useLogin } from "../Hooks/useLogin";
 import { AppContextProps } from "../Types/types";
 
@@ -17,11 +16,9 @@ export function AppContextProvider({ children }) {
     setBackgroundColor((prev) => (prev === "#fff" ? "#0009" : "#fff"));
   }
 
-  const name = "Fábio";
   return (
     <AppContext.Provider
       value={{
-        name,
         ...hookUseLogin,
         videoGravado,
         setVideoGravado,
