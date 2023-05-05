@@ -1,6 +1,30 @@
 import { displayFlexCenter } from "../../Styles/DefaultStyles";
 import styled from "styled-components";
 
+import { StyleSheet } from "react-native";
+
+const { dfc, wh100 } = StyleSheet.create({
+  dfc: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  wh100: {
+    width: "100%",
+    height: "100%",
+  }
+});
+
+
+
+export const styles = StyleSheet.create({
+  backgroundApp: {
+    ...dfc,
+    ...wh100,
+  }
+
+});
+
 
 export const BackgroundApp = styled.View`
   ${displayFlexCenter}

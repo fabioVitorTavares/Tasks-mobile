@@ -1,9 +1,15 @@
 import { View, Text } from "react-native";
-import { BackgroundApp, TitleHome, ContentHome, CardMenu } from "./styles";
+import {
+  BackgroundApp,
+  TitleHome,
+  ContentHome,
+  CardMenu,
+  styles,
+} from "./styles";
 
 export default function Home() {
   return (
-    <BackgroundApp>
+    <View style={styles.backgroundApp}>
       <TitleHome>Tarefas</TitleHome>
       <ContentHome>
         <CardMenu></CardMenu>
@@ -13,6 +19,6 @@ export default function Home() {
         <CardMenu></CardMenu>
         <CardMenu></CardMenu>
       </ContentHome>
-    </BackgroundApp>
+    </View>
   );
 }
