@@ -45,7 +45,7 @@ const Styles = StyleSheet.create({
     height: " 30%",
     margin: "2.5%",
     borderRadius: 10,
-    backgroundColor: "#0005",
+    backgroundColor: "#000",
   },
   titleCardMenu: {
     color: "#fff",
